@@ -10,8 +10,14 @@
     <style>
         /* Apply the custom cursor to the entire page */
         body, html {
-            cursor: url(./images/pixil-frame-1.png), auto;
+            cursor: url(./images/pixil-frame-2.png), auto;
+
         }
+
+        .hover-box:hover {
+      /* You can use a relative path, absolute path, or external URL */
+      cursor: url(./images/pixil-frame-1.png), auto;
+    }
         :root {
             color-background: #ffffff;
             --color-foreground: #000000;
@@ -205,6 +211,7 @@
             .navbar__link:not(.navbar__link--cta):focus {
                 background-color: var(--color-foreground);
                 color: var(--color-background);
+                cursor: url(./images/pixil-frame-1.png), auto;
             }
             
             /* CTA Button Styling for Desktop */
@@ -229,7 +236,7 @@
 
     <header class="navbar" role="banner">
         <div class="navbar__container">
-            <a href="#" class="navbar__brand" aria-label="Homepage">SUNGUILT</a>
+            <a href="#" class="navbar__brand hover-box" aria-label="Homepage">SUNGUILT</a>
 
             <button class="navbar__toggle"
                     id="navbarToggle"
@@ -243,11 +250,11 @@
 
             <nav id="navbarMenu" class="navbar__menu" role="navigation" aria-labelledby="navbarToggle">
                 <ul class="navbar__list">
-                    <li class="navbar__item"><a style="color: white" href="#" class="navbar__link">HOME</a></li>
-                    <li class="navbar__item"><a style="color: white" href="#" class="navbar__link">ABOUT</a></li>
-                    <li class="navbar__item"><a style="color: white" href="#" class="navbar__link">MERCH</a></li>
-                    <li class="navbar__item"><a style="color: white" href="#" class="navbar__link">CONTACT</a></li>
-                    <li class="navbar__item navbar__item--cta">
+                    <li class="navbar__item"><a style="color: white" href="#" class="navbar__link hover-box">HOME</a></li>
+                    <li class="navbar__item"><a style="color: white" href="#" class="navbar__link hover-box">ABOUT</a></li>
+                    <li class="navbar__item"><a style="color: white" href="#" class="navbar__link hover-box">MERCH</a></li>
+                    <li class="navbar__item"><a style="color: white" href="#" class="navbar__link hover-box">CONTACT</a></li>
+                    <li class="hover-box navbar__item navbar__item--cta">
                         <a style="color: #F7B4B5" href="#" class="navbar__link navbar__link--cta">MEDIA</a>
                     </li>
                 </ul>
