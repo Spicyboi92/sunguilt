@@ -23,8 +23,18 @@
             position: fixed;
             background-size: cover;
             background-position: center;
-            background-repeat: repeat-y; /* Repeats vertically */
-            animation: scrollUp 6s linear 3;
+            background-repeat: no-repeat;
+            animation: scrollUp 60s linear infinite;
+        }
+
+        /* Mobile styles (screens 768px wide or smaller) */
+        @media screen and (max-width: 768px) {
+            #backgroundDiv {
+                /* Changes how the image scales on smaller viewports */
+                background-size: cover;
+                /* Optional: Adjust container height to match mobile layout */
+                height: 300px;
+            }
         }
 
         @keyframes scrollUp {
@@ -33,7 +43,7 @@
             }
 
             to {
-                background-position: 0 -100px; /* Negative Y value moves image UP */
+                background-position: 0 -600px; /* Negative Y value moves image UP */
             }
         }
 
@@ -80,9 +90,9 @@
             content: 'Come die with us.';
             display: block;
             text-align: center;
-            height: 800vh;
+            height: 600vh;
             padding-top: 5rem;
-            color: #777;
+            color: #F7B4B5;
         }
         
         ul { list-style: none; margin: 0; padding: 0; }
@@ -278,7 +288,7 @@
                     <li class="navbar__item"><a style="color: white" href="#" class="navbar__link hover-box">MERCH</a></li>
                     <li class="navbar__item"><a style="color: white" href="#" class="navbar__link hover-box">CONTACT</a></li>
                     <li class="hover-box navbar__item navbar__item--cta">
-                        <a style="color: #F7B4B5" href="#" class="navbar__link navbar__link--cta">MEDIA</a>
+                        <a style="color: #F7B4B5" href="#" class="hover-box navbar__link navbar__link--cta">MEDIA</a>
                     </li>
                 </ul>
             </nav>
