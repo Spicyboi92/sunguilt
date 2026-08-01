@@ -18,24 +18,20 @@
         #backgroundDiv {
             z-index: -1;
             background-image: url('./images/mainimg.jpeg');
-            height: 100vh;
-            width: 100vw;
+            background-size: 100% auto; 
+  
+  /* Ensures the container fills the viewport */
+  width: 100%;
+  min-height: 100vh; 
             position: fixed;
-            background-size: cover;
+
             background-position: center;
             background-repeat: no-repeat;
             animation: scrollUp 60s linear infinite;
         }
 
         /* Mobile styles (screens 768px wide or smaller) */
-        @media screen and (max-width: 768px) {
-            #backgroundDiv {
-                /* Changes how the image scales on smaller viewports */
-                background-size: cover;
-                /* Optional: Adjust container height to match mobile layout */
-                height: 300px;
-            }
-        }
+
 
         @keyframes scrollUp {
             from {
