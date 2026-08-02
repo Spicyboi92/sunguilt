@@ -316,7 +316,7 @@
 
 
 <body style="background-color: #F7B4B5;">
-
+    <!--NAV BAR-->
     <header class="navbar" role="banner">
         <div class="navbar__container">
             <a id="mainLogo" href="#" class="navbar__brand hover-box" aria-label="Homepage">SUNGUILT</a>
@@ -336,12 +336,12 @@
 
             <nav id="navbarMenu" class="navbar__menu" role="navigation" aria-labelledby="navbarToggle">
                 <ul class="navbar__list">
-                    <li class="navbar__item"><a style="color: white" href="#" class="navbar__link hover-box">HOME</a></li>
-                    <li class="navbar__item"><a style="color: white" href="#" class="navbar__link hover-box">ABOUT</a></li>
-                    <li class="navbar__item"><a style="color: white" href="#" class="navbar__link hover-box">MERCH</a></li>
-                    <li class="navbar__item"><a style="color: white" href="#" class="navbar__link hover-box">CONTACT</a></li>
-                    <li class="hover-box navbar__item navbar__item--cta">
-                        <a style="color: #F7B4B5" href="#" class="hover-box navbar__link navbar__link--cta">MEDIA</a>
+                    <li class="navbar__item"><a id="homeButton" href="#" style="color: white;" class="navbar__link hover-box">HOME</a></li>
+                    <li class="navbar__item"><a id="aboutButton" href="#" style="color: white;" class="navbar__link hover-box">ABOUT</a></li>
+                    <li class="navbar__item"><a id="merchButton" href="#" style="color: white;" class="navbar__link hover-box">MERCH</a></li>
+                    <li class="navbar__item"><a id="contactButton" style="color: white" href="#" class="navbar__link hover-box">CONTACT</a></li>
+                    <li class="navbar__item">
+                        <a id="mediaButton" style="color: white" href="#" class="hover-box navbar__link">MEDIA</a>
                     </li>
                 </ul>
             </nav>
@@ -355,20 +355,70 @@
 
         <div class="fade-in-box textContentdiv">
             <p class="textContent1">Sunguilt is a shoegaze band from Austin, Texas.</p>
-            <p class="textContent1">Come Die with us</p>
+            <p class="textContent1">Come Die with us.</p>
         </div>
 
         <div class="fade-in-box" id="bandPic">
             <img src="./images/bandPicCrop.jpeg" alt="band Pic">
         </div>
     </div>
+
+    <!--ABOUT PAGE-->
+    <div id="AboutPage" style="display: none;">
+        <div class="fade-in-box textContentdiv">
+            <p class="textContent1">Sunguilt is a shoegaze band from Austin, Texas.</p>
+            <p class="textContent1">Come Die with us.</p>
+            <p class="textContent1">About Page Under Construction!! (◐ω◑ )</p>
+        </div>
+    </div>
+
+    <!--MERCH PAGE-->
+    <div id="merchPage" style="display: none;">
+        <div class="fade-in-box textContentdiv">
+            <p class="textContent1">Please send all merch inquiries to</p>
+            <p class="textContent1">sunguiltmusic@gmail.com</p>
+            <p class="textContent1">More info coming soon! (-‿◦☀)</p>
+        </div>
+    </div>
+
+    <!--CONTACT PAGE-->
+    <div id="contactPage" style="display: none;">
+        <div class="fade-in-box textContentdiv">
+            <p class="textContent1">Please send all show and other inquiries to</p>
+            <p class="textContent1">sunguiltmusic@gmail.com</p>
+            <p class="textContent1">More info coming soon! (づ ◕‿◕ )づ</p>
+        </div>
+    </div>
+
+    <!--MEDIA PAGE-->
+    <div id="mediaPage" style="display: none;">
+        <div class="fade-in-box textContentdiv">
+            <p class="textContent1">More cool images and vids coming soon!!</p>
+            <p class="textContent1">Stay tuned! (๏ᆺ๏υ)</p>
+        </div>
+    </div>
+
+    <!--SCRIPT-->
     <script>
         // A small, accessible script to toggle the mobile menu.
         document.addEventListener('DOMContentLoaded', function () {
             const navbarToggle = document.getElementById('navbarToggle');
             const navbarMenu = document.getElementById('navbarMenu');
+            
+            // BUTTONS
             const mainLogo = document.getElementById('mainLogo');
+            const homeButton = document.getElementById('homeButton');
+            const aboutButton = document.getElementById('aboutButton');
+            const merchButton = document.getElementById('merchButton');
+            const contactButton = document.getElementById('contactButton');
+            const mediaButton = document.getElementById('mediaButton');
+
+            // PAGES
             const langingPage = document.getElementById('landingPage');
+            const aboutPage = document.getElementById('AboutPage');
+            const merchPage = document.getElementById('merchPage');
+            const contactPage = document.getElementById('contactPage');
+            const mediaPage = document.getElementById('mediaPage');
 
             if (navbarToggle && navbarMenu) {
                 navbarToggle.addEventListener('click', function () {
@@ -382,8 +432,86 @@
             // Main Logo Clicked
             mainLogo.addEventListener('click', function () {
                 langingPage.style.display = "block";
+                aboutPage.style.display = "none";
+                merchPage.style.display = "none";
+                contactPage.style.display = "none";
+                mediaPage.style.display = "none";
+
+                navbarToggle.classList.toggle('is-active');
+                navbarMenu.classList.toggle('is-active');
+                const isExpanded = navbarToggle.getAttribute('aria-expanded') === 'true';
+                navbarToggle.setAttribute('aria-expanded', !isExpanded);
+            });
+
+            // Home Clicked
+            homeButton.addEventListener('click', function () {
+                langingPage.style.display = "block";
+                aboutPage.style.display = "none";
+                merchPage.style.display = "none";
+                contactPage.style.display = "none";
+                mediaPage.style.display = "none";
+
+                navbarToggle.classList.toggle('is-active');
+                navbarMenu.classList.toggle('is-active');
+                const isExpanded = navbarToggle.getAttribute('aria-expanded') === 'true';
+                navbarToggle.setAttribute('aria-expanded', !isExpanded);
+            });
+
+            // About Clicked
+            aboutButton.addEventListener('click', function () {
+                langingPage.style.display = "none";
+                aboutPage.style.display = "block";
+                merchPage.style.display = "none";
+                contactPage.style.display = "none";
+                mediaPage.style.display = "none";
+
+                navbarToggle.classList.toggle('is-active');
+                navbarMenu.classList.toggle('is-active');
+                const isExpanded = navbarToggle.getAttribute('aria-expanded') === 'true';
+                navbarToggle.setAttribute('aria-expanded', !isExpanded);
+            });
+
+            // Merch Clicked
+            merchButton.addEventListener('click', function () {
+                langingPage.style.display = "none";
+                aboutPage.style.display = "none";
+                merchPage.style.display = "block";
+                contactPage.style.display = "none";
+                mediaPage.style.display = "none";
+
+                navbarToggle.classList.toggle('is-active');
+                navbarMenu.classList.toggle('is-active');
+                const isExpanded = navbarToggle.getAttribute('aria-expanded') === 'true';
+                navbarToggle.setAttribute('aria-expanded', !isExpanded);
+            });
+
+            // Contact Clicked
+            contactButton.addEventListener('click', function () {
+                langingPage.style.display = "none";
+                aboutPage.style.display = "none";
+                merchPage.style.display = "none";
+                contactPage.style.display = "block";
+                mediaPage.style.display = "none";
+
+                navbarToggle.classList.toggle('is-active');
+                navbarMenu.classList.toggle('is-active');
+                const isExpanded = navbarToggle.getAttribute('aria-expanded') === 'true';
+                navbarToggle.setAttribute('aria-expanded', !isExpanded);
             });
             
+            // Media Clicked
+            mediaButton.addEventListener('click', function () {
+                langingPage.style.display = "none";
+                aboutPage.style.display = "none";
+                merchPage.style.display = "none";
+                contactPage.style.display = "none";
+                mediaPage.style.display = "block";
+
+                navbarToggle.classList.toggle('is-active');
+                navbarMenu.classList.toggle('is-active');
+                const isExpanded = navbarToggle.getAttribute('aria-expanded') === 'true';
+                navbarToggle.setAttribute('aria-expanded', !isExpanded);
+            });
         });
     </script>
 
