@@ -18,19 +18,65 @@
         #backgroundDiv {
             z-index: -1;
             background-image: url('./images/mainimg.jpeg');
-            background-size: 100% auto; 
-  
-  /* Ensures the container fills the viewport */
-  width: 100%;
-  min-height: 100vh; 
-            position: fixed;
-
+            background-size: 100% auto;
+            /* Ensures the container fills the viewport */
+            width: 100%;
+            min-height: 80vh;
+            /*position: fixed;*/
             background-position: center;
             background-repeat: no-repeat;
-            animation: scrollUp 60s linear infinite;
+            animation: scrollUp 30s linear infinite;
         }
 
-        /* Mobile styles (screens 768px wide or smaller) */
+        #bandPic {
+            display: flex; /* Turns the div into a flex container */
+            justify-content: center; /* Centers the image horizontally */
+            align-items: center; /* Centers the image vertically */
+            min-height: 100vh; /* Forces the container to take up the full screen height */
+            width: 100%; /* Forces the container to take up the full screen width */
+            box-sizing: border-box; /* Prevents padding from breaking the layout */
+        }
+
+        #bandPic img {
+            max-width: 100%; /* Prevents the image from overflowing small screens */
+            height: auto; /* Maintains the original image aspect ratio */
+        }
+
+        /* scroll shrink and grow*/
+        /*.fade-in-box {
+            scale: .5 1;
+            animation: fade-in-box linear;
+            animation-timeline: scroll(block);
+        }
+
+        @keyframes fade-in-box {
+            to { scale: 1 1;}
+        }*/
+
+        /* image fade in*/
+        .fade-in-box {
+            animation: fade-in linear;
+            animation-timeline: view();
+            animation-range-start: cover;
+            animation-range-end: 700px;
+        }
+
+        @keyframes fade-in-box {
+            from { scale: .8; opacity: 100;}
+            to { scale: 1; opacity: 1;}
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                transform: translateY(30px); /* Optional: slides up slightly while fading */
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
 
         @keyframes scrollUp {
@@ -39,7 +85,7 @@
             }
 
             to {
-                background-position: 0 -600px; /* Negative Y value moves image UP */
+                background-position: 0 -120px; /* Negative Y value moves image UP */
             }
         }
 
@@ -82,13 +128,16 @@
         }
 
         /* Add some placeholder content */
-        body::after {
-            content: 'Come die with us.';
-            display: block;
+        .textContentdiv {
+            
             text-align: center;
-            height: 600vh;
-            padding-top: 5rem;
-            color: #F7B4B5;
+            padding-top: 2rem;
+            color: black;
+            justify-content: center; /* Centers the image horizontally */
+            align-items: center; /* Centers the image vertically */
+            min-height: 20vh; /* Forces the container to take up the full screen height */
+            width: 100%; /* Forces the container to take up the full screen width */
+            box-sizing: border-box; /* Prevents padding from breaking the layout */
         }
         
         ul { list-style: none; margin: 0; padding: 0; }
@@ -123,6 +172,11 @@
             text-transform: uppercase;
             padding: 0.5rem;
             border: var(--border-style);
+            color: var(--color-foreground);
+        }
+
+        .navbar__social {
+            padding: 0.5rem;
             color: var(--color-foreground);
         }
 
@@ -265,8 +319,11 @@
 
     <header class="navbar" role="banner">
         <div class="navbar__container">
-            <a href="#" class="navbar__brand hover-box" aria-label="Homepage">SUNGUILT</a>
+            <a id="mainLogo" href="#" class="navbar__brand hover-box" aria-label="Homepage">SUNGUILT</a>
 
+            <a class="navbar__social hover-box" href="https://www.instagram.com/s_u_n_g_u_i_l_t/" target="_blank" aria-label="Instagram">
+                    <img src="./images/new-instagram-logo-glyph.svg" alt="Instagram logo" width="20" height="20">
+            </a>
             <button class="navbar__toggle"
                     id="navbarToggle"
                     aria-label="Toggle navigation"
@@ -290,19 +347,28 @@
             </nav>
         </div>
     </header>
-    <div id="backgroundDiv">
+    
+    <!--LANDING PAGE--> 
+    <div id="landingPage">
+        <div id="backgroundDiv">
+        </div>
 
+        <div class="fade-in-box textContentdiv">
+            <p class="textContent1">Sunguilt is a shoegaze band from Austin, Texas.</p>
+            <p class="textContent1">Come Die with us</p>
+        </div>
+
+        <div class="fade-in-box" id="bandPic">
+            <img src="./images/bandPicCrop.jpeg" alt="band Pic">
+        </div>
     </div>
-    <br><br><br><br>
-
-    <center>
-
-    </center>
     <script>
         // A small, accessible script to toggle the mobile menu.
         document.addEventListener('DOMContentLoaded', function () {
             const navbarToggle = document.getElementById('navbarToggle');
             const navbarMenu = document.getElementById('navbarMenu');
+            const mainLogo = document.getElementById('mainLogo');
+            const langingPage = document.getElementById('landingPage');
 
             if (navbarToggle && navbarMenu) {
                 navbarToggle.addEventListener('click', function () {
@@ -312,6 +378,12 @@
                     navbarToggle.setAttribute('aria-expanded', !isExpanded);
                 });
             }
+
+            // Main Logo Clicked
+            mainLogo.addEventListener('click', function () {
+                langingPage.style.display = "block";
+            });
+            
         });
     </script>
 
