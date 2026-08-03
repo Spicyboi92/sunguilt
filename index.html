@@ -8,16 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <style>
-        /* Apply the custom cursor to the entire page */
-        body, html {
-            cursor: url(./images/pixil-frame-3.png), auto;
-
-        }
         
         /* background imgage */
         #backgroundDiv {
             z-index: -1;
-            background-image: url('./images/mainimg.jpeg');
+            background-image: url('./images/Untitled_Artwork.JPG');
             background-size: 100% auto;
             /* Ensures the container fills the viewport */
             width: 100%;
@@ -25,89 +20,6 @@
             /*position: fixed;*/
             background-position: center;
             background-repeat: no-repeat;
-            animation: scrollUp 30s linear infinite;
-        }
-
-        #bandPic {
-            display: flex; /* Turns the div into a flex container */
-            justify-content: center; /* Centers the image horizontally */
-            align-items: center; /* Centers the image vertically */
-            min-height: 100vh; /* Forces the container to take up the full screen height */
-            width: 100%; /* Forces the container to take up the full screen width */
-            box-sizing: border-box; /* Prevents padding from breaking the layout */
-        }
-
-        #bandPic img {
-            max-width: 100%; /* Prevents the image from overflowing small screens */
-            height: auto; /* Maintains the original image aspect ratio */
-        }
-
-        /* scroll shrink and grow*/
-        /*.fade-in-box {
-            scale: .5 1;
-            animation: fade-in-box linear;
-            animation-timeline: scroll(block);
-        }
-
-        @keyframes fade-in-box {
-            to { scale: 1 1;}
-        }*/
-
-        /* image fade in*/
-        .fade-in-box {
-            animation: fade-in linear;
-            animation-timeline: view();
-            animation-range-start: cover;
-            animation-range-end: 700px;
-        }
-
-        @keyframes fade-in-box {
-            from { scale: .8; opacity: 100;}
-            to { scale: 1; opacity: 1;}
-        }
-
-        @keyframes fade-in {
-            from {
-                opacity: 0;
-                transform: translateY(30px); /* Optional: slides up slightly while fading */
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-
-        @keyframes scrollUp {
-            from {
-                background-position: 0 0;
-            }
-
-            to {
-                background-position: 0 -120px; /* Negative Y value moves image UP */
-            }
-        }
-
-        .hover-box:hover {
-            /* You can use a relative path, absolute path, or external URL */
-            cursor: url(./images/pixil-frame-1.png), auto;
-        }
-        :root {
-            color-background: #ffffff;
-            --color-foreground: #000000;
-            --color-accent: #ffff00;   /* A classic, vibrant web yellow */
-
-            --font-family-mono: 'SF Mono', 'Menlo', 'Consolas', 'Liberation Mono', monospace;
-            --font-weight-bold: 700;
-            
-            --border-width: 3px;
-            --border-style: var(--border-width) solid var(--color-foreground);
-
-            --navbar-height: 80px;
-            --navbar-padding: 1rem;
-            --container-width: 1140px;
-            --transition-speed: 0.15s;
         }
 
         *,
@@ -127,18 +39,6 @@
             /* Set the colors explicitly for a true inversion effect later */
         }
 
-        /* Add some placeholder content */
-        .textContentdiv {
-            
-            text-align: center;
-            padding-top: 2rem;
-            color: black;
-            justify-content: center; /* Centers the image horizontally */
-            align-items: center; /* Centers the image vertically */
-            min-height: 20vh; /* Forces the container to take up the full screen height */
-            width: 100%; /* Forces the container to take up the full screen width */
-            box-sizing: border-box; /* Prevents padding from breaking the layout */
-        }
         
         ul { list-style: none; margin: 0; padding: 0; }
         a { text-decoration: none; color: inherit; } /* Links inherit color */
@@ -294,7 +194,6 @@
             .navbar__link:not(.navbar__link--cta):focus {
                 background-color: var(--color-foreground);
                 color: var(--color-background);
-                cursor: url(./images/pixil-frame-1.png), auto;
             }
             
             /* CTA Button Styling for Desktop */
@@ -315,7 +214,7 @@
 </head>
 
 
-<body style="background-color: #F7B4B5;">
+<body style="background-color: black;">
     <!--NAV BAR-->
     <header class="navbar" role="banner">
         <div class="navbar__container">
@@ -351,15 +250,6 @@
     <!--LANDING PAGE--> 
     <div id="landingPage">
         <div id="backgroundDiv">
-        </div>
-
-        <div class="fade-in-box textContentdiv">
-            <p class="textContent1">Sunguilt is a shoegaze band from Austin, Texas.</p>
-            <p class="textContent1">Come Die with us.</p>
-        </div>
-
-        <div class="fade-in-box" id="bandPic">
-            <img src="./images/bandPicCrop.jpeg" alt="band Pic">
         </div>
     </div>
 
